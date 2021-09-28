@@ -1,0 +1,38 @@
+:root {
+  --color-gold: #c59d57;
+  --color-grey: #617d98;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint==tab-port) {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if ($breakpoint==phone) {
+    @media (max-width: 58.33em) {
+      @content;
+    }
+  }
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  @include respond(tab-port) {
+    font-size: 60%;
+  }
+  @include respond(phone) {
+    font-size: 57%;
+  }
+}
+body {
+  font-size: 1.4rem;
+}
